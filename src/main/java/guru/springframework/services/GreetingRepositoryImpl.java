@@ -1,8 +1,13 @@
 package guru.springframework.services;
 
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Service;
+
 /**
  * Created by jt on 5/24/17.
  */
+@Profile({"default", "en", "es", "de"})
+@Service
 public class GreetingRepositoryImpl implements GreetingRepository {
 
     @Override
