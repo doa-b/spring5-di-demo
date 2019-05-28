@@ -1,0 +1,39 @@
+# this is a comment
+
+name: John
+
+names: # inline Comment
+  - John
+  - Paul
+  - Ringo
+
+book:
+  author: Joe Buck
+  publisher: random house
+
+
+# evaluated as true
+truth: yes
+
+another_truth: Tru
+
+more_true: true
+
+#evaluated as false
+false: no #No, false FALSE
+
+string_val: "This is it's quote"
+
+colon_string: "my courses: one to three"
+
+include_new_lines: |
+  asdfasdfsda
+  dfsadf
+  ewerer rwerewrw werw
+
+ignore_new_lines: >
+  this is
+  just one long
+  string
+
+
