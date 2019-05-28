@@ -14,13 +14,7 @@ import org.springframework.core.env.Environment;
  * Created by jt on 6/7/17.
  */
 @Configuration
-//@PropertySource("classpath:datasource.properties")
-//@PropertySource("classpath:jms.properties")
-@PropertySource({"classpath:datasource.properties", "classpath:jms.properties"})
 public class PropertyConfig {
-
-    @Autowired
-    Environment environment;
 
     @Value("${guru.username}")
     String user;
@@ -44,8 +38,8 @@ public class PropertyConfig {
     public FakeDataSource fakeDataSource(){
         FakeDataSource fakeDataSource = new FakeDataSource();
         fakeDataSource.setUser(user);
-        fakeDataSource.setPassword(environment.getProperty("PASSWORD"));
-        fakeDataSource.setUrl(environment.getProperty("DBURL"));
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setUrl(url);
         return fakeDataSource;
     }
 
@@ -56,11 +50,5 @@ public class PropertyConfig {
         jmsBroker.setPassword(jmsPassword);
         jmsBroker.setUrl(jmsUrl);
         return jmsBroker;
-    }
-
-    @Bean
-    public static PropertySourcesPlaceholderConfigurer properties(){
-        PropertySourcesPlaceholderConfigurer propertySourcesPlaceholderConfigurer =new PropertySourcesPlaceholderConfigurer();
-        return  propertySourcesPlaceholderConfigurer;
     }
 }
